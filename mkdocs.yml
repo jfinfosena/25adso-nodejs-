@@ -58,6 +58,7 @@ nav:
   - Inicio: index.md  
   - Contenido:
       - content/p0.md      
+      - content/p1.md      
       
 
   - Proyecto Integrador: 
