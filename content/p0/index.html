@@ -1,0 +1,2486 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+        <meta name="author" content="jhonfvg">
+      
+      
+        <link rel="canonical" href="https://jfinfosena.github.io/25adso-nodejs/content/p0/">
+      
+      
+        <link rel="prev" href="../..">
+      
+      
+        <link rel="next" href="../p1/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.3">
+    
+    
+      
+        <title>Introducción a Node.js: - NodeJS</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.d7758b05.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+   <link href="../../assets/stylesheets/glightbox.min.css" rel="stylesheet"/><style>
+    html.glightbox-open { overflow: initial; height: 100%; }
+    .gslide-title { margin-top: 0px; user-select: text; }
+    .gslide-desc { color: #666; user-select: text; }
+    .gslide-image img { background: white; }
+    .gscrollbar-fixer { padding-right: 15px; }
+    .gdesc-inner { font-size: 0.75rem; }
+    body[data-md-color-scheme="slate"] .gdesc-inner { background: var(--md-default-bg-color);}
+    body[data-md-color-scheme="slate"] .gslide-title { color: var(--md-default-fg-color);}
+    body[data-md-color-scheme="slate"] .gslide-desc { color: var(--md-default-fg-color);}</style> <script src="../../assets/javascripts/glightbox.min.js"></script></head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#introduccion-a-nodejs" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../.." title="NodeJS" class="md-header__button md-logo" aria-label="NodeJS" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="m11.28 3.22 4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.749.749 0 0 1-1.275-.326.75.75 0 0 1 .215-.734L13.94 8l-3.72-3.72a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215m-6.56 0a.75.75 0 0 1 1.042.018.75.75 0 0 1 .018 1.042L2.06 8l3.72 3.72a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215L.47 8.53a.75.75 0 0 1 0-1.06Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            NodeJS
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Introducción a Node.js:
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="blue"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="orange" data-md-color-accent="lime"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Pestañas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Inicio
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+    
+  
+  Contenido
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../pi/p1/" class="md-tabs__link">
+          
+  
+    
+  
+  Proyecto Integrador
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../blog/" class="md-tabs__link">
+          
+  
+    
+  
+  Blog
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../about/" class="md-tabs__link">
+        
+  
+    
+  
+  Acerca de
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="NodeJS" class="md-nav__button md-logo" aria-label="NodeJS" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path d="m11.28 3.22 4.25 4.25a.75.75 0 0 1 0 1.06l-4.25 4.25a.749.749 0 0 1-1.275-.326.75.75 0 0 1 .215-.734L13.94 8l-3.72-3.72a.749.749 0 0 1 .326-1.275.75.75 0 0 1 .734.215m-6.56 0a.75.75 0 0 1 1.042.018.75.75 0 0 1 .018 1.042L2.06 8l3.72 3.72a.749.749 0 0 1-.326 1.275.75.75 0 0 1-.734-.215L.47 8.53a.75.75 0 0 1 0-1.06Z"/></svg>
+
+    </a>
+    NodeJS
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Inicio
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Contenido
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Contenido
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Introducción a Node.js:
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Introducción a Node.js:
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-caracteristicas-arquitectura-y-casos-de-uso" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Características, Arquitectura y Casos de Uso
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Características, Arquitectura y Casos de Uso">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#caracteristicas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Características:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arquitectura" class="md-nav__link">
+    <span class="md-ellipsis">
+      Arquitectura:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#casos-de-uso" class="md-nav__link">
+    <span class="md-ellipsis">
+      Casos de Uso:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-instalacion-y-configuracion-del-entorno-nodejs-npm-vs-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Instalación y Configuración del Entorno (Node.js, npm, VS Code)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-conceptos-de-apis-rest-metodos-http-codigos-de-estado-json" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Conceptos de APIs REST: Métodos HTTP, Códigos de Estado, JSON
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Conceptos de APIs REST: Métodos HTTP, Códigos de Estado, JSON">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#componentes-clave" class="md-nav__link">
+    <span class="md-ellipsis">
+      Componentes Clave:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-creacion-de-un-servidor-basico-con-nodejs-puro" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Creación de un Servidor Básico con Node.js Puro
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Creación de un Servidor Básico con Node.js Puro">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pasos-y-codigo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pasos y Código:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1-crear-un-archivo-serverjs" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Crear un archivo server.js:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-explicacion-del-codigo" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Explicación del código:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-ejecutar-y-probar" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Ejecutar y probar:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-ejemplo-de-uso-de-pdfkit-para-crear-un-pdf" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Ejemplo de Uso de pdfkit para Crear un PDF
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Ejemplo de Uso de pdfkit para Crear un PDF">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#instalacion-de-pdfkit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Instalación de pdfkit:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codigo-de-ejemplo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Código de Ejemplo:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#actividad-practica-1-manipulacion-de-archivos-excel-con-nodejs-y-npm" class="md-nav__link">
+    <span class="md-ellipsis">
+      Actividad Práctica 1: Manipulación de Archivos Excel con Node.js y npm
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contexto" class="md-nav__link">
+    <span class="md-ellipsis">
+      Contexto
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instrucciones-de-la-actividad" class="md-nav__link">
+    <span class="md-ellipsis">
+      Instrucciones de la Actividad
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Instrucciones de la Actividad">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parte-1-configuracion-del-entorno" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parte 1: Configuración del Entorno
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parte-2-crear-un-archivo-excel" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parte 2: Crear un Archivo Excel
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parte-3-leer-un-archivo-excel" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parte 3: Leer un Archivo Excel
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parte-4-entregables-y-reflexion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parte 4: Entregables y Reflexión
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#actividad-practica-2-metodos-http-con-postman-y-mockoon-playground" class="md-nav__link">
+    <span class="md-ellipsis">
+      Actividad Práctica 2: Métodos HTTP con Postman y Mockoon Playground
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contexto_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Contexto
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instrucciones-de-la-actividad_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Instrucciones de la Actividad
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Instrucciones de la Actividad">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parte-1-configuracion-del-entorno_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parte 1: Configuración del Entorno
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parte-2-practica-con-metodos-http" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parte 2: Práctica con Métodos HTTP
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Parte 2: Práctica con Métodos HTTP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tarea-1-get-listar-todos-los-usuarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tarea 1: GET - Listar Todos los Usuarios
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tarea-2-get-obtener-un-usuario-especifico" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tarea 2: GET - Obtener un Usuario Específico
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tarea-3-post-crear-un-nuevo-usuario" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tarea 3: POST - Crear un Nuevo Usuario
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tarea-4-put-actualizar-un-usuario" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tarea 4: PUT - Actualizar un Usuario
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tarea-5-delete-eliminar-un-usuario" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tarea 5: DELETE - Eliminar un Usuario
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tutorial-instalar-y-usar-prompt-sync-en-nodejs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tutorial: Instalar y usar prompt-sync en Node.js
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tutorial: Instalar y usar prompt-sync en Node.js">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#paso-1-requisitos-previos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Paso 1: Requisitos previos
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paso-2-crear-un-proyecto-nodejs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Paso 2: Crear un proyecto Node.js
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paso-3-instalar-prompt-sync" class="md-nav__link">
+    <span class="md-ellipsis">
+      Paso 3: Instalar prompt-sync
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paso-4-crear-un-archivo-para-usar-prompt-sync" class="md-nav__link">
+    <span class="md-ellipsis">
+      Paso 4: Crear un archivo para usar prompt-sync
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paso-5-ejecutar-el-programa" class="md-nav__link">
+    <span class="md-ellipsis">
+      Paso 5: Ejecutar el programa
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paso-6-ejemplo-avanzado" class="md-nav__link">
+    <span class="md-ellipsis">
+      Paso 6: Ejemplo avanzado
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paso-7-solucion-de-problemas-comunes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Paso 7: Solución de problemas comunes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paso-8-opcional-actualizar-o-desinstalar" class="md-nav__link">
+    <span class="md-ellipsis">
+      Paso 8: Opcional - Actualizar o desinstalar
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../p1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tutorial Básico de Express y NestJS para Crear APIs en Node.js
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../p2/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Arquitectura de un Proyecto NestJS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../p3/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Controladores en NestJS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../p4/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Servicios en NestJS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../p5/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tutorial de JSON en JavaScript
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../p6/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Tutorial Básico: Blog con Prisma y MySQL en NestJS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../p7/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Actividad Grupal: Diseño e Implementación de API Personalizada con NestJS y Prisma
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Proyecto Integrador
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Proyecto Integrador
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pi/p1/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Introducción Proyecto Integrador
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../blog/" class="md-nav__link ">
+              
+  
+  <span class="md-ellipsis">
+    Blog
+    
+  </span>
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_4" id="__nav_4_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Blog
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Archivo
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Acerca de
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-caracteristicas-arquitectura-y-casos-de-uso" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Características, Arquitectura y Casos de Uso
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Características, Arquitectura y Casos de Uso">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#caracteristicas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Características:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#arquitectura" class="md-nav__link">
+    <span class="md-ellipsis">
+      Arquitectura:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#casos-de-uso" class="md-nav__link">
+    <span class="md-ellipsis">
+      Casos de Uso:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-instalacion-y-configuracion-del-entorno-nodejs-npm-vs-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Instalación y Configuración del Entorno (Node.js, npm, VS Code)
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-conceptos-de-apis-rest-metodos-http-codigos-de-estado-json" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Conceptos de APIs REST: Métodos HTTP, Códigos de Estado, JSON
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Conceptos de APIs REST: Métodos HTTP, Códigos de Estado, JSON">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#componentes-clave" class="md-nav__link">
+    <span class="md-ellipsis">
+      Componentes Clave:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-creacion-de-un-servidor-basico-con-nodejs-puro" class="md-nav__link">
+    <span class="md-ellipsis">
+      4. Creación de un Servidor Básico con Node.js Puro
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Creación de un Servidor Básico con Node.js Puro">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pasos-y-codigo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Pasos y Código:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#1-crear-un-archivo-serverjs" class="md-nav__link">
+    <span class="md-ellipsis">
+      1. Crear un archivo server.js:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2-explicacion-del-codigo" class="md-nav__link">
+    <span class="md-ellipsis">
+      2. Explicación del código:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-ejecutar-y-probar" class="md-nav__link">
+    <span class="md-ellipsis">
+      3. Ejecutar y probar:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-ejemplo-de-uso-de-pdfkit-para-crear-un-pdf" class="md-nav__link">
+    <span class="md-ellipsis">
+      5. Ejemplo de Uso de pdfkit para Crear un PDF
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Ejemplo de Uso de pdfkit para Crear un PDF">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#instalacion-de-pdfkit" class="md-nav__link">
+    <span class="md-ellipsis">
+      Instalación de pdfkit:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#codigo-de-ejemplo" class="md-nav__link">
+    <span class="md-ellipsis">
+      Código de Ejemplo:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#actividad-practica-1-manipulacion-de-archivos-excel-con-nodejs-y-npm" class="md-nav__link">
+    <span class="md-ellipsis">
+      Actividad Práctica 1: Manipulación de Archivos Excel con Node.js y npm
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contexto" class="md-nav__link">
+    <span class="md-ellipsis">
+      Contexto
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instrucciones-de-la-actividad" class="md-nav__link">
+    <span class="md-ellipsis">
+      Instrucciones de la Actividad
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Instrucciones de la Actividad">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parte-1-configuracion-del-entorno" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parte 1: Configuración del Entorno
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parte-2-crear-un-archivo-excel" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parte 2: Crear un Archivo Excel
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parte-3-leer-un-archivo-excel" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parte 3: Leer un Archivo Excel
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parte-4-entregables-y-reflexion" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parte 4: Entregables y Reflexión
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#actividad-practica-2-metodos-http-con-postman-y-mockoon-playground" class="md-nav__link">
+    <span class="md-ellipsis">
+      Actividad Práctica 2: Métodos HTTP con Postman y Mockoon Playground
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#contexto_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Contexto
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instrucciones-de-la-actividad_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Instrucciones de la Actividad
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Instrucciones de la Actividad">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#parte-1-configuracion-del-entorno_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parte 1: Configuración del Entorno
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#parte-2-practica-con-metodos-http" class="md-nav__link">
+    <span class="md-ellipsis">
+      Parte 2: Práctica con Métodos HTTP
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Parte 2: Práctica con Métodos HTTP">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tarea-1-get-listar-todos-los-usuarios" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tarea 1: GET - Listar Todos los Usuarios
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tarea-2-get-obtener-un-usuario-especifico" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tarea 2: GET - Obtener un Usuario Específico
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tarea-3-post-crear-un-nuevo-usuario" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tarea 3: POST - Crear un Nuevo Usuario
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tarea-4-put-actualizar-un-usuario" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tarea 4: PUT - Actualizar un Usuario
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tarea-5-delete-eliminar-un-usuario" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tarea 5: DELETE - Eliminar un Usuario
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tutorial-instalar-y-usar-prompt-sync-en-nodejs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Tutorial: Instalar y usar prompt-sync en Node.js
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tutorial: Instalar y usar prompt-sync en Node.js">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#paso-1-requisitos-previos" class="md-nav__link">
+    <span class="md-ellipsis">
+      Paso 1: Requisitos previos
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paso-2-crear-un-proyecto-nodejs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Paso 2: Crear un proyecto Node.js
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paso-3-instalar-prompt-sync" class="md-nav__link">
+    <span class="md-ellipsis">
+      Paso 3: Instalar prompt-sync
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paso-4-crear-un-archivo-para-usar-prompt-sync" class="md-nav__link">
+    <span class="md-ellipsis">
+      Paso 4: Crear un archivo para usar prompt-sync
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paso-5-ejecutar-el-programa" class="md-nav__link">
+    <span class="md-ellipsis">
+      Paso 5: Ejecutar el programa
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paso-6-ejemplo-avanzado" class="md-nav__link">
+    <span class="md-ellipsis">
+      Paso 6: Ejemplo avanzado
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paso-7-solucion-de-problemas-comunes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Paso 7: Solución de problemas comunes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#paso-8-opcional-actualizar-o-desinstalar" class="md-nav__link">
+    <span class="md-ellipsis">
+      Paso 8: Opcional - Actualizar o desinstalar
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="introduccion-a-nodejs">Introducción a Node.js:</h1>
+<h3 id="1-caracteristicas-arquitectura-y-casos-de-uso">1. Características, Arquitectura y Casos de Uso</h3>
+<p><strong>Explicación</strong>:<br />
+Node.js es un entorno de ejecución de JavaScript que permite ejecutar código fuera del navegador, en el lado del servidor. Fue creado en 2009 por Ryan Dahl y utiliza el motor V8 de Google Chrome para ejecutar JavaScript de manera eficiente.</p>
+<h4 id="caracteristicas"><strong>Características</strong>:</h4>
+<ul>
+<li><strong>Asíncrono y No Bloqueante</strong>: Node.js maneja operaciones de entrada/salida (como leer archivos o consultar bases de datos) sin bloquear el hilo principal, permitiendo procesar múltiples solicitudes simultáneamente.  </li>
+<li>Ejemplo: Un servidor puede responder a un cliente mientras espera datos de una base de datos.</li>
+<li><strong>Basado en Eventos</strong>: Utiliza un <em>Event Loop</em> para responder a eventos (como solicitudes HTTP) mediante <em>callbacks</em>, promesas o async/await.</li>
+<li><strong>Single-Threaded</strong>: Opera en un solo hilo principal, pero delega tareas pesadas a un <em>Thread Pool</em>, lo que lo hace eficiente para operaciones I/O-intensivas.</li>
+<li><strong>Rápido</strong>: El motor V8 compila JavaScript a código máquina, ofreciendo alto rendimiento.</li>
+<li><strong>Ecosistema npm</strong>: Incluye npm, el gestor de paquetes más grande, con miles de bibliotecas (como Express para APIs o Mongoose para MongoDB).</li>
+<li><strong>Multiplataforma</strong>: Compatible con Windows, macOS y Linux.</li>
+<li><strong>JavaScript Full-Stack</strong>: Permite usar JavaScript tanto en el frontend como en el backend.</li>
+</ul>
+<h4 id="arquitectura"><strong>Arquitectura</strong>:</h4>
+<p>Node.js está diseñado para ser ligero y eficiente, con los siguientes componentes clave:</p>
+<ul>
+<li><strong>Motor V8</strong>: Ejecuta JavaScript a nivel de máquina.</li>
+<li><strong>Event Loop</strong>: Gestiona eventos y operaciones asíncronas, procesando tareas en un ciclo continuo (verifica eventos → ejecuta <em>callbacks</em> → repite).</li>
+<li><strong>Libuv</strong>: Biblioteca en C que maneja operaciones asíncronas (I/O, red, archivos) y proporciona el <em>Event Loop</em>.</li>
+<li><strong>Thread Pool</strong>: Ejecuta tareas bloqueantes (como operaciones de archivo) en hilos secundarios.</li>
+<li><strong>Módulos Nativos</strong>: Incluye módulos como <code>http</code>, <code>fs</code> (file system) y <code>path</code> para tareas comunes.</li>
+</ul>
+<p><strong>Flujo básico</strong>:  </p>
+<ol>
+<li>Una solicitud (como una petición HTTP) llega al servidor.  </li>
+<li>El <em>Event Loop</em> la recibe y la delega a <em>Libuv</em> o al <em>Thread Pool</em> si es necesario.  </li>
+<li>Una vez completada, el <em>callback</em> asociado se ejecuta y se envía la respuesta al cliente.</li>
+</ol>
+<h4 id="casos-de-uso"><strong>Casos de Uso</strong>:</h4>
+<ul>
+<li><strong>APIs RESTful</strong>: Crear APIs para aplicaciones web/móviles (ejemplo: backend de una tienda en línea).</li>
+<li><strong>Aplicaciones en Tiempo Real</strong>: Chats, juegos o colaboración en línea (ejemplo: Slack usa Node.js).</li>
+<li><strong>Microservicios</strong>: Servicios modulares en arquitecturas distribuidas (ejemplo: Netflix).</li>
+<li><strong>Streaming</strong>: Transmisión de video/audio (ejemplo: plataformas como Twitch).</li>
+<li><strong>Herramientas CLI</strong>: Scripts de automatización o generadores de proyectos (ejemplo: Create React App).</li>
+</ul>
+<p><strong>Limitaciones</strong>: No es ideal para tareas intensivas en CPU (como cálculos científicos), donde lenguajes como Python o C++ son más adecuados.</p>
+<hr />
+<h3 id="2-instalacion-y-configuracion-del-entorno-nodejs-npm-vs-code">2. Instalación y Configuración del Entorno (Node.js, npm, VS Code)</h3>
+<p><strong>Explicación</strong>:<br />
+Configurar un entorno de desarrollo funcional es esencial para trabajar con Node.js. Esto incluye instalar Node.js (que viene con npm), configurar un editor de código (VS Code) y preparar herramientas para pruebas (como Postman).</p>
+<p><strong>Pasos</strong>:</p>
+<ol>
+<li>
+<p><strong>Instalar Node.js y npm</strong>:  </p>
+<ul>
+<li>Descargar Node.js desde <a href="https://nodejs.org">nodejs.org</a>. Recomendado: versión LTS (Long-Term Support) para estabilidad.  </li>
+<li>Instalar siguiendo las instrucciones del sistema operativo (Windows, macOS, Linux).  </li>
+<li>Verificar instalación:<br />
+  <div class="highlight"><pre><span></span><code>node<span class="w"> </span>-v<span class="w">  </span><span class="c1"># Muestra la versión de Node.js (ejemplo: v20.x.x)</span>
+npm<span class="w"> </span>-v<span class="w">   </span><span class="c1"># Muestra la versión de npm (ejemplo: 10.x.x)</span>
+</code></pre></div></li>
+<li>npm es el gestor de paquetes incluido con Node.js, usado para instalar dependencias como Express.</li>
+</ul>
+</li>
+<li>
+<p><strong>Configurar VS Code</strong>:  </p>
+<ul>
+<li>Descargar e instalar Visual Studio Code desde <a href="https://code.visualstudio.com">code.visualstudio.com</a>.  </li>
+<li>Instalar extensiones recomendadas:  </li>
+<li><strong>ESLint</strong>: Detecta errores en el código JavaScript.  </li>
+<li><strong>Prettier</strong>: Formatea el código automáticamente.  </li>
+<li><strong>JavaScript (ES6) Snippets</strong>: Atajos para escribir código más rápido.  </li>
+<li>Configurar un entorno de trabajo: crear una carpeta para el proyecto (ejemplo: <code>mi-api</code>).</li>
+</ul>
+</li>
+<li>
+<p><strong>Instalar Postman</strong>:  </p>
+<ul>
+<li>Descargar Postman desde <a href="https://www.postman.com">postman.com</a> para probar endpoints de la API.  </li>
+<li>Postman permite enviar solicitudes HTTP (GET, POST, etc.) y visualizar respuestas JSON.</li>
+</ul>
+</li>
+<li>
+<p><strong>Estructura inicial del proyecto</strong>: </p>
+<ul>
+<li>Crear una carpeta para el proyecto:<br />
+  <div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>mi-api
+<span class="nb">cd</span><span class="w"> </span>mi-api
+</code></pre></div></li>
+<li>Inicializar un proyecto Node.js:<br />
+  <div class="highlight"><pre><span></span><code>npm<span class="w"> </span>init<span class="w"> </span>-y<span class="w">  </span><span class="c1"># Crea un archivo package.json con valores predeterminados</span>
+</code></pre></div></li>
+</ul>
+</li>
+</ol>
+<p><strong>Nota</strong>: Asegurarse de tener una conexión a internet para descargar paquetes con npm.</p>
+<hr />
+<h3 id="3-conceptos-de-apis-rest-metodos-http-codigos-de-estado-json">3. Conceptos de APIs REST: Métodos HTTP, Códigos de Estado, JSON</h3>
+<p><strong>Explicación</strong>:<br />
+Una API REST (Representational State Transfer) es un estilo arquitectónico para diseñar aplicaciones web que permite la comunicación entre cliente (navegador, app móvil) y servidor a través de HTTP. Las APIs REST son stateless (sin estado), lo que significa que cada solicitud contiene toda la información necesaria para procesarla.</p>
+<h4 id="componentes-clave"><strong>Componentes Clave</strong>:</h4>
+<ol>
+<li>
+<p><strong>Métodos HTTP</strong>:  </p>
+<ul>
+<li>Define la acción que se desea realizar sobre un recurso (como un usuario o producto).  </li>
+<li>Principales métodos:<br />
+        - <strong>GET</strong>: Obtener datos (ejemplo: listar productos).<br />
+        - <strong>POST</strong>: Crear un nuevo recurso (ejemplo: registrar un usuario).<br />
+        - <strong>PUT</strong>: Actualizar un recurso existente (ejemplo: modificar datos de un producto).<br />
+        - <strong>DELETE</strong>: Eliminar un recurso (ejemplo: borrar un comentario).<br />
+        - Otros: <strong>PATCH</strong> (actualización parcial), <strong>OPTIONS</strong> (consultar métodos permitidos).</li>
+</ul>
+</li>
+<li>
+<p><strong>Códigos de Estado HTTP</strong>: </p>
+<ul>
+<li>Indican el resultado de una solicitud.  </li>
+<li>Categorías principales:  </li>
+<li><strong>2xx (Éxito)</strong>:<br />
+        - 200 OK: Solicitud exitosa.<br />
+        - 201 Created: Recurso creado correctamente.  </li>
+<li><strong>4xx (Error del Cliente)</strong>:<br />
+        - 400 Bad Request: Solicitud mal formada.<br />
+        - 404 Not Found: Recurso no encontrado.  </li>
+<li><strong>5xx (Error del Servidor)</strong>:<br />
+        - 500 Internal Server Error: Error interno del servidor.  </li>
+<li>Ejemplo: Una solicitud GET a <code>/productos/123</code> devuelve 404 si el producto no existe.</li>
+</ul>
+</li>
+<li>
+<p><strong>JSON (JavaScript Object Notation)</strong>:  </p>
+<ul>
+<li>Formato estándar para enviar y recibir datos en APIs REST.  </li>
+<li>Estructura: Objetos <code>{}</code> y arreglos <code>[]</code> con pares clave-valor.  </li>
+<li>Ejemplo de respuesta JSON:<br />
+  <div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">      </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;nombre&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Laptop&quot;</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;precio&quot;</span><span class="p">:</span><span class="w"> </span><span class="mf">999.99</span><span class="p">,</span>
+<span class="w">      </span><span class="nt">&quot;disponible&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span>
+<span class="p">}</span>
+</code></pre></div></li>
+<li>Ventajas: Ligero, legible y soportado por todos los lenguajes modernos.</li>
+</ul>
+</li>
+</ol>
+<p><strong>Ejemplo de interacción REST</strong>: </p>
+<ul>
+<li>Solicitud: <code>GET /api/productos</code> → Respuesta: <code>200 OK</code> con una lista de productos en JSON.  </li>
+<li>Solicitud: <code>POST /api/usuarios</code> con un JSON → Respuesta: <code>201 Created</code> con el usuario creado.</li>
+</ul>
+<hr />
+<h3 id="4-creacion-de-un-servidor-basico-con-nodejs-puro">4. Creación de un Servidor Básico con Node.js Puro</h3>
+<p><strong>Explicación</strong>:<br />
+Node.js incluye el módulo nativo <code>http</code> para crear servidores web sin dependencias externas. Esto permite entender cómo funciona un servidor a bajo nivel antes de usar frameworks como Express.</p>
+<h4 id="pasos-y-codigo"><strong>Pasos y Código</strong>:</h4>
+<h4 id="1-crear-un-archivo-serverjs">1. Crear un archivo <code>server.js</code>:</h4>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">http</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;http&#39;</span><span class="p">);</span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">server</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">http</span><span class="p">.</span><span class="nx">createServer</span><span class="p">((</span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">res</span><span class="p">)</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="c1">// Verificar si la ruta es &#39;/&#39; y el método es GET</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">url</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">&#39;/&#39;</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nx">req</span><span class="p">.</span><span class="nx">method</span><span class="w"> </span><span class="o">===</span><span class="w"> </span><span class="s1">&#39;GET&#39;</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">res</span><span class="p">.</span><span class="nx">writeHead</span><span class="p">(</span><span class="mf">200</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s1">&#39;Content-Type&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;application/json&#39;</span><span class="w"> </span><span class="p">});</span>
+<span class="w">      </span><span class="nx">res</span><span class="p">.</span><span class="nx">end</span><span class="p">(</span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span><span class="w"> </span><span class="nx">message</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Hola, mundo&#39;</span><span class="w"> </span><span class="p">}));</span>
+<span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">      </span><span class="nx">res</span><span class="p">.</span><span class="nx">writeHead</span><span class="p">(</span><span class="mf">404</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="s1">&#39;Content-Type&#39;</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;application/json&#39;</span><span class="w"> </span><span class="p">});</span>
+<span class="w">      </span><span class="nx">res</span><span class="p">.</span><span class="nx">end</span><span class="p">(</span><span class="nb">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span><span class="w"> </span><span class="nx">error</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Ruta no encontrada&#39;</span><span class="w"> </span><span class="p">}));</span>
+<span class="p">}</span>
+<span class="p">});</span>
+
+<span class="nx">server</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="mf">3000</span><span class="p">,</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Servidor corriendo en http://localhost:3000&#39;</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div>
+<h4 id="2-explicacion-del-codigo">2. <strong>Explicación del código</strong>:</h4>
+<ul>
+<li><code>http.createServer</code>: Crea un servidor que escucha solicitudes HTTP.  </li>
+<li><code>(req, res)</code>: <code>req</code> contiene información de la solicitud (URL, método, headers); <code>res</code> permite enviar la respuesta.  </li>
+<li><code>res.writeHead</code>: Establece el código de estado y los headers (como el tipo de contenido).  </li>
+<li><code>res.end</code>: Envía la respuesta al cliente (en este caso, un JSON).  </li>
+<li><code>server.listen(3000)</code>: Inicia el servidor en el puerto 3000.</li>
+</ul>
+<h4 id="3-ejecutar-y-probar">3. <strong>Ejecutar y probar</strong>:</h4>
+<ul>
+<li>Ejecutar: <code>node server.js</code>.  </li>
+<li>Abrir Postman o un navegador y enviar una solicitud GET a <code>http://localhost:3000</code>.  </li>
+<li>Respuesta esperada: <code>{ "message": "Hola, mundo" }</code>.  </li>
+<li>Probar una ruta inválida (ejemplo: <code>/test</code>): <code>{ "error": "Ruta no encontrada" }</code>.</li>
+</ul>
+<p><strong>Limitaciones</strong>:  </p>
+<ul>
+<li>El módulo <code>http</code> es de bajo nivel y requiere manejar manualmente rutas, métodos y respuestas.  </li>
+<li>Para proyectos reales, frameworks como Express simplifican estas tareas.</li>
+</ul>
+<hr />
+<h3 id="5-ejemplo-de-uso-de-pdfkit-para-crear-un-pdf">5. Ejemplo de Uso de pdfkit para Crear un PDF</h3>
+<p>pdfkit es una biblioteca de Node.js que permite crear documentos PDF de manera programática. Aquí tienes un ejemplo básico de cómo utilizar pdfkit para generar un PDF con datos de ejemplo:</p>
+<h4 id="instalacion-de-pdfkit">Instalación de pdfkit:</h4>
+<div class="highlight"><pre><span></span><code>npm<span class="w"> </span>install<span class="w"> </span>pdfkit
+</code></pre></div>
+<h4 id="codigo-de-ejemplo">Código de Ejemplo:</h4>
+<p><div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">PDFDocument</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;pdfkit&#39;</span><span class="p">);</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">fs</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;fs&#39;</span><span class="p">);</span>
+
+<span class="c1">// Crear un nuevo documento PDF</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">doc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ow">new</span><span class="w"> </span><span class="nx">PDFDocument</span><span class="p">();</span>
+
+<span class="c1">// Guardar el PDF en un archivo</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">stream</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">fs</span><span class="p">.</span><span class="nx">createWriteStream</span><span class="p">(</span><span class="s1">&#39;output.pdf&#39;</span><span class="p">);</span>
+<span class="nx">doc</span><span class="p">.</span><span class="nx">pipe</span><span class="p">(</span><span class="nx">stream</span><span class="p">);</span>
+
+<span class="c1">// Agregar un título</span>
+<span class="nx">doc</span><span class="p">.</span><span class="nx">fontSize</span><span class="p">(</span><span class="mf">20</span><span class="p">).</span><span class="nx">text</span><span class="p">(</span><span class="s1">&#39;Reporte de Productos&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">align</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;center&#39;</span><span class="w"> </span><span class="p">});</span>
+<span class="nx">doc</span><span class="p">.</span><span class="nx">moveDown</span><span class="p">();</span><span class="w"> </span><span class="c1">// Espacio vertical</span>
+
+<span class="c1">// Agregar un párrafo</span>
+<span class="nx">doc</span><span class="p">.</span><span class="nx">fontSize</span><span class="p">(</span><span class="mf">12</span><span class="p">).</span><span class="nx">text</span><span class="p">(</span><span class="s1">&#39;Este es un reporte generado con Node.js y pdfkit. A continuación, se muestra una lista de productos disponibles:&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">align</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;left&#39;</span><span class="w"> </span><span class="p">});</span>
+<span class="nx">doc</span><span class="p">.</span><span class="nx">moveDown</span><span class="p">();</span>
+
+<span class="c1">// Datos de ejemplo (productos)</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">products</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="nx">nombre</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Laptop&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">precio</span><span class="o">:</span><span class="w"> </span><span class="mf">999.99</span><span class="p">,</span><span class="w"> </span><span class="nx">categoria</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Electrónica&#39;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="nx">nombre</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Libro&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">precio</span><span class="o">:</span><span class="w"> </span><span class="mf">19.99</span><span class="p">,</span><span class="w"> </span><span class="nx">categoria</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Educación&#39;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">  </span><span class="p">{</span><span class="w"> </span><span class="nx">nombre</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Auriculares&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">precio</span><span class="o">:</span><span class="w"> </span><span class="mf">49.99</span><span class="p">,</span><span class="w"> </span><span class="nx">categoria</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Accesorios&#39;</span><span class="w"> </span><span class="p">}</span>
+<span class="p">];</span>
+
+<span class="c1">// Crear una tabla simple</span>
+<span class="nx">doc</span><span class="p">.</span><span class="nx">fontSize</span><span class="p">(</span><span class="mf">14</span><span class="p">).</span><span class="nx">text</span><span class="p">(</span><span class="s1">&#39;Tabla de Productos&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">underline</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">});</span>
+<span class="nx">doc</span><span class="p">.</span><span class="nx">moveDown</span><span class="p">(</span><span class="mf">0.5</span><span class="p">);</span>
+
+<span class="c1">// Encabezados de la tabla</span>
+<span class="nx">doc</span><span class="p">.</span><span class="nx">fontSize</span><span class="p">(</span><span class="mf">10</span><span class="p">).</span><span class="nx">text</span><span class="p">(</span><span class="s1">&#39;Nombre&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">100</span><span class="p">,</span><span class="w"> </span><span class="nx">doc</span><span class="p">.</span><span class="nx">y</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">continued</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">});</span>
+<span class="nx">doc</span><span class="p">.</span><span class="nx">text</span><span class="p">(</span><span class="s1">&#39;Precio&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">250</span><span class="p">,</span><span class="w"> </span><span class="nx">doc</span><span class="p">.</span><span class="nx">y</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">continued</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">});</span>
+<span class="nx">doc</span><span class="p">.</span><span class="nx">text</span><span class="p">(</span><span class="s1">&#39;Categoría&#39;</span><span class="p">,</span><span class="w"> </span><span class="mf">350</span><span class="p">,</span><span class="w"> </span><span class="nx">doc</span><span class="p">.</span><span class="nx">y</span><span class="p">);</span>
+<span class="nx">doc</span><span class="p">.</span><span class="nx">moveDown</span><span class="p">(</span><span class="mf">0.5</span><span class="p">);</span>
+
+<span class="c1">// Filas de la tabla</span>
+<span class="nx">products</span><span class="p">.</span><span class="nx">forEach</span><span class="p">(</span><span class="nx">product</span><span class="w"> </span><span class="p">=&gt;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">doc</span><span class="p">.</span><span class="nx">text</span><span class="p">(</span><span class="nx">product</span><span class="p">.</span><span class="nx">nombre</span><span class="p">,</span><span class="w"> </span><span class="mf">100</span><span class="p">,</span><span class="w"> </span><span class="nx">doc</span><span class="p">.</span><span class="nx">y</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">continued</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">});</span>
+<span class="w">  </span><span class="nx">doc</span><span class="p">.</span><span class="nx">text</span><span class="p">(</span><span class="sb">`$</span><span class="si">${</span><span class="nx">product</span><span class="p">.</span><span class="nx">precio</span><span class="p">.</span><span class="nx">toFixed</span><span class="p">(</span><span class="mf">2</span><span class="p">)</span><span class="si">}</span><span class="sb">`</span><span class="p">,</span><span class="w"> </span><span class="mf">250</span><span class="p">,</span><span class="w"> </span><span class="nx">doc</span><span class="p">.</span><span class="nx">y</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nx">continued</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="p">});</span>
+<span class="w">  </span><span class="nx">doc</span><span class="p">.</span><span class="nx">text</span><span class="p">(</span><span class="nx">product</span><span class="p">.</span><span class="nx">categoria</span><span class="p">,</span><span class="w"> </span><span class="mf">350</span><span class="p">,</span><span class="w"> </span><span class="nx">doc</span><span class="p">.</span><span class="nx">y</span><span class="p">);</span>
+<span class="w">  </span><span class="nx">doc</span><span class="p">.</span><span class="nx">moveDown</span><span class="p">(</span><span class="mf">0.5</span><span class="p">);</span>
+<span class="p">});</span>
+
+<span class="c1">// Finalizar el documento</span>
+<span class="nx">doc</span><span class="p">.</span><span class="nx">end</span><span class="p">();</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Archivo PDF &quot;output.pdf&quot; creado exitosamente.&#39;</span><span class="p">);</span>
+</code></pre></div>
+<strong>Explicación</strong>:</p>
+<ul>
+<li><code>PDFDocument</code>: Clase de <code>pdfkit</code> para crear documentos PDF.</li>
+<li><code>fs</code>: Módulo nativo de Node.js para trabajar con el sistema de archivos.</li>
+<li><code>createWriteStream</code>: Crea un flujo de escritura para guardar el PDF en un archivo.</li>
+<li><code>pipe</code>: Conecta el flujo de escritura con el documento PDF.</li>
+<li><code>fontSize</code>: Cambia el tamaño de fuente para el texto.</li>
+<li><code>text</code>: Agrega texto al documento.</li>
+<li><code>moveDown</code>: Mueve el cursor hacia abajo.</li>
+<li><code>forEach</code>: Itera sobre un array para agregar filas a la tabla.</li>
+<li><code>end</code>: Finaliza el documento PDF.</li>
+</ul>
+<hr />
+<h2 id="actividad-practica-1-manipulacion-de-archivos-excel-con-nodejs-y-npm">Actividad Práctica 1: Manipulación de Archivos Excel con Node.js y npm</h2>
+<p><strong>Duración</strong>: 1 hora<br />
+<strong>Nivel</strong>: Principiante<br />
+<strong>Objetivos</strong>:  </p>
+<ul>
+<li>Instalar y configurar un proyecto Node.js con dependencias npm.  </li>
+<li>Usar la librería <code>xlsx</code> para leer y escribir archivos Excel.  </li>
+<li>Crear un archivo Excel desde datos en memoria y leer un archivo existente.  </li>
+<li>Comprender el manejo básico de archivos en Node.js.   </li>
+</ul>
+<h2 id="contexto">Contexto</h2>
+<p>En esta actividad, crearás un proyecto Node.js que usa la librería <code>xlsx</code> para:  </p>
+<ol>
+<li>Generar un archivo Excel con datos de estudiantes (nombre, edad, curso).  </li>
+<li>Leer un archivo Excel existente y mostrar su contenido en la consola.  </li>
+</ol>
+<p>La librería <code>xlsx</code> es una herramienta popular para manipular archivos Excel (.xlsx) en Node.js, permitiendo leer, escribir y modificar hojas de cálculo sin necesidad de instalar Microsoft Excel.</p>
+<p><strong>Estructura del proyecto</strong>:
+<div class="highlight"><pre><span></span><code>excel-activity/
+├── data/
+│   └── input.xlsx  (opcional, para lectura)
+├── node_modules/
+├── index.js
+├── package.json
+└── output.xlsx  (generado por el script)
+</code></pre></div></p>
+<hr />
+<h2 id="instrucciones-de-la-actividad">Instrucciones de la Actividad</h2>
+<h3 id="parte-1-configuracion-del-entorno">Parte 1: Configuración del Entorno</h3>
+<ol>
+<li>
+<p><strong>Crear el proyecto</strong>:  </p>
+<ul>
+<li>Crea una carpeta para la actividad:<br />
+  <div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>excel-activity
+<span class="nb">cd</span><span class="w"> </span>excel-activity
+</code></pre></div></li>
+<li>Inicializa un proyecto Node.js:<br />
+  <div class="highlight"><pre><span></span><code>npm<span class="w"> </span>init<span class="w"> </span>-y
+</code></pre></div>
+  Esto genera un archivo <code>package.json</code> con la configuración predeterminada.</li>
+</ul>
+</li>
+<li>
+<p><strong>Instalar la dependencia <code>xlsx</code></strong>:  </p>
+<ul>
+<li>Instala la librería <code>xlsx</code> usando npm:<br />
+  <div class="highlight"><pre><span></span><code>npm<span class="w"> </span>install<span class="w"> </span>xlsx
+</code></pre></div></li>
+<li>Verifica que se creó la carpeta <code>node_modules</code> y que <code>xlsx</code> aparece en <code>dependencies</code> dentro de <code>package.json</code>.</li>
+</ul>
+</li>
+<li>
+<p><strong>Configurar VS Code</strong>:  </p>
+<ul>
+<li>Abre la carpeta <code>excel-activity</code> en VS Code.  </li>
+<li>Crea un archivo <code>index.js</code> en la raíz del proyecto.  </li>
+<li>Opcional: Instala extensiones como <strong>ESLint</strong> y <strong>Prettier</strong> para mejor formato de código.</li>
+</ul>
+</li>
+<li>
+<p><strong>Crear una carpeta para datos</strong>:  </p>
+<ul>
+<li>Crea una subcarpeta <code>data</code>:<br />
+  <div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>data
+</code></pre></div></li>
+<li>(Opcional) Si deseas practicar la lectura, crea un archivo <code>input.xlsx</code> manualmente en la carpeta <code>data</code> con una hoja de cálculo simple (por ejemplo, columnas: <code>Nombre</code>, <code>Edad</code>, <code>Curso</code>).</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h3 id="parte-2-crear-un-archivo-excel">Parte 2: Crear un Archivo Excel</h3>
+<ol>
+<li>
+<p><strong>Escribir el código en <code>index.js</code></strong>:<br />
+      o- Abre <code>index.js</code> y agrega el siguiente código para crear un archivo Excel con datos de estudiantes:<br />
+      <div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">XLSX</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;xlsx&#39;</span><span class="p">);</span>
+
+<span class="c1">// Crear datos de ejemplo (array de objetos)</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">students</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+<span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="nx">Nombre</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Ana López&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">Edad</span><span class="o">:</span><span class="w"> </span><span class="mf">20</span><span class="p">,</span><span class="w"> </span><span class="nx">Curso</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Matemáticas&#39;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="nx">Nombre</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Juan Pérez&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">Edad</span><span class="o">:</span><span class="w"> </span><span class="mf">22</span><span class="p">,</span><span class="w"> </span><span class="nx">Curso</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Historia&#39;</span><span class="w"> </span><span class="p">},</span>
+<span class="w">      </span><span class="p">{</span><span class="w"> </span><span class="nx">Nombre</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;María Gómez&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">Edad</span><span class="o">:</span><span class="w"> </span><span class="mf">19</span><span class="p">,</span><span class="w"> </span><span class="nx">Curso</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Programación&#39;</span><span class="w"> </span><span class="p">}</span>
+<span class="p">];</span>
+
+<span class="c1">// Convertir los datos en una hoja de cálculo</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">worksheet</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">XLSX</span><span class="p">.</span><span class="nx">utils</span><span class="p">.</span><span class="nx">json_to_sheet</span><span class="p">(</span><span class="nx">students</span><span class="p">);</span>
+
+<span class="c1">// Crear un nuevo libro de trabajo (workbook)</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">workbook</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">XLSX</span><span class="p">.</span><span class="nx">utils</span><span class="p">.</span><span class="nx">book_new</span><span class="p">();</span>
+<span class="nx">XLSX</span><span class="p">.</span><span class="nx">utils</span><span class="p">.</span><span class="nx">book_append_sheet</span><span class="p">(</span><span class="nx">workbook</span><span class="p">,</span><span class="w"> </span><span class="nx">worksheet</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Estudiantes&#39;</span><span class="p">);</span>
+
+<span class="c1">// Guardar el archivo Excel</span>
+<span class="nx">XLSX</span><span class="p">.</span><span class="nx">writeFile</span><span class="p">(</span><span class="nx">workbook</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;output.xlsx&#39;</span><span class="p">);</span>
+
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Archivo Excel &quot;output.xlsx&quot; creado exitosamente.&#39;</span><span class="p">);</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Explicación del código</strong>:  </p>
+<ul>
+<li><code>require('xlsx')</code>: Importa la librería <code>xlsx</code>.  </li>
+<li><code>students</code>: Un array de objetos que representa los datos a escribir.  </li>
+<li><code>XLSX.utils.json_to_sheet</code>: Convierte el array de objetos en una hoja de cálculo.  </li>
+<li><code>XLSX.utils.book_new</code>: Crea un nuevo libro de trabajo (workbook).  </li>
+<li><code>XLSX.utils.book_append_sheet</code>: Agrega la hoja al libro con el nombre 'Estudiantes'.  </li>
+<li><code>XLSX.writeFile</code>: Guarda el libro como un archivo <code>.xlsx</code> en la carpeta del proyecto.</li>
+</ul>
+</li>
+<li>
+<p><strong>Ejecutar el código</strong>:  </p>
+<ul>
+<li>En la terminal, ejecuta:<br />
+  <div class="highlight"><pre><span></span><code>node<span class="w"> </span>index.js
+</code></pre></div></li>
+<li>Verifica que se creó el archivo <code>output.xlsx</code> en la carpeta del proyecto.  </li>
+<li>Abre <code>output.xlsx</code> con una aplicación como Microsoft Excel, Google Sheets o LibreOffice Calc para confirmar que contiene los datos de los estudiantes.</li>
+</ul>
+</li>
+<li>
+<p><strong>Tarea adicional</strong>:  </p>
+<ul>
+<li>Modifica el array <code>students</code> para agregar dos estudiantes más con datos diferentes.  </li>
+<li>Vuelve a ejecutar <code>node index.js</code> y verifica que el archivo <code>output.xlsx</code> se actualizó.</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h3 id="parte-3-leer-un-archivo-excel">Parte 3: Leer un Archivo Excel</h3>
+<ol>
+<li>
+<p><strong>Preparar un archivo de entrada (opcional)</strong>:  </p>
+<ul>
+<li>Si tienes un archivo <code>input.xlsx</code> en la carpeta <code>data</code>, asegúrate de que tenga una hoja con columnas como <code>Nombre</code>, <code>Edad</code>, <code>Curso</code>.  </li>
+<li>Si no, usa el <code>output.xlsx</code> generado en la Parte 2 como entrada.</li>
+</ul>
+</li>
+<li>
+<p><strong>Agregar código para leer en <code>index.js</code></strong>:  </p>
+<ul>
+<li>Modifica <code>index.js</code> para incluir la lectura del archivo Excel (agrega este código después del código anterior):<br />
+  <div class="highlight"><pre><span></span><code><span class="c1">// Leer un archivo Excel existente</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">inputFile</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;output.xlsx&#39;</span><span class="p">;</span><span class="w"> </span><span class="c1">// Cambia a &#39;data/input.xlsx&#39; si usas otro archivo</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">workbookRead</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">XLSX</span><span class="p">.</span><span class="nx">readFile</span><span class="p">(</span><span class="nx">inputFile</span><span class="p">);</span>
+
+<span class="c1">// Obtener la primera hoja del archivo</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">sheetName</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">workbookRead</span><span class="p">.</span><span class="nx">SheetNames</span><span class="p">[</span><span class="mf">0</span><span class="p">];</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">worksheetRead</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">workbookRead</span><span class="p">.</span><span class="nx">Sheets</span><span class="p">[</span><span class="nx">sheetName</span><span class="p">];</span>
+
+<span class="c1">// Convertir la hoja a un array de objetos</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">data</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">XLSX</span><span class="p">.</span><span class="nx">utils</span><span class="p">.</span><span class="nx">sheet_to_json</span><span class="p">(</span><span class="nx">worksheetRead</span><span class="p">);</span>
+
+<span class="c1">// Mostrar los datos en la consola</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Contenido del archivo Excel:&#39;</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">data</span><span class="p">);</span>
+</code></pre></div></li>
+</ul>
+</li>
+<li>
+<p><strong>Explicación del código</strong>:  </p>
+<ul>
+<li><code>XLSX.readFile</code>: Lee el archivo Excel especificado.  </li>
+<li><code>workbookRead.SheetNames[0]</code>: Obtiene el nombre de la primera hoja.  </li>
+<li><code>XLSX.utils.sheet_to_json</code>: Convierte la hoja en un array de objetos.  </li>
+<li><code>console.log(data)</code>: Muestra los datos en la consola.</li>
+</ul>
+</li>
+<li>
+<p><strong>Ejecutar y verificar</strong>:  </p>
+<ul>
+<li>Ejecuta: <code>node index.js</code>.  </li>
+<li>Verifica que la consola muestre los datos del archivo (ejemplo: <code>[{ Nombre: 'Ana López', Edad: 20, Curso: 'Matemáticas' }, ...]</code>).  </li>
+<li>Si usaste <code>input.xlsx</code>, asegúrate de que el contenido coincida con lo esperado.</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h3 id="parte-4-entregables-y-reflexion">Parte 4: Entregables y Reflexión</h3>
+<ol>
+<li>
+<p><strong>Entregables</strong>:  </p>
+<ul>
+<li>Archivo <code>index.js</code> con el código completo (creación y lectura).  </li>
+<li>Archivo <code>output.xlsx</code> generado.  </li>
+<li>Captura de pantalla de la consola mostrando los datos leídos.  </li>
+<li>(Opcional) Archivo <code>input.xlsx</code> si creaste uno propio.</li>
+</ul>
+</li>
+<li>
+<p><strong>Preguntas de reflexión</strong> (responde en un documento o en comentarios en <code>index.js</code>):  </p>
+<ul>
+<li>¿Qué comando usaste para instalar la librería <code>xlsx</code>?  </li>
+<li>¿Qué función de <code>xlsx</code> convierte un array de objetos en una hoja de cálculo?  </li>
+<li>¿Qué observaste al abrir <code>output.xlsx</code> en una aplicación de hojas de cálculo?  </li>
+<li>¿Cómo podrías usar esta funcionalidad en un proyecto real (por ejemplo, para exportar datos de una aplicación)?</li>
+</ul>
+</li>
+</ol>
+<hr />
+<h2 id="actividad-practica-2-metodos-http-con-postman-y-mockoon-playground">Actividad Práctica 2: Métodos HTTP con Postman y Mockoon Playground</h2>
+<p><strong>Objetivos</strong>: </p>
+<ul>
+<li>Practicar el uso de métodos HTTP (GET, POST, PUT, DELETE) en una API REST.  </li>
+<li>Configurar y usar Postman para enviar solicitudes HTTP.  </li>
+<li>Interactuar con el Mockoon Playground para simular operaciones CRUD en una API real.  </li>
+<li>Analizar respuestas HTTP, incluyendo códigos de estado y datos JSON.  </li>
+</ul>
+<hr />
+<h2 id="contexto_1">Contexto</h2>
+<p>El <strong>Mockoon Playground</strong> es una API mock pública que proporciona endpoints con datos falsos para simular operaciones CRUD (Create, Read, Update, Delete). En esta actividad, usarás el recurso <code>/users</code> del Playground para practicar los métodos HTTP. Cada solicitud se enviará a través de <strong>Postman</strong>, y analizarás las respuestas para entender cómo funcionan las APIs REST.</p>
+<p><strong>Base URL del Mockoon Playground</strong>: <code>https://playground.mockoon.com</code><br />
+<strong>Recurso principal</strong>: <code>/users</code> (contiene datos de usuarios ficticios con campos como <code>id</code>, <code>name</code>, <code>email</code>).  </p>
+<p><strong>Notas importantes</strong>:  </p>
+<ul>
+<li>El Playground aplica límites de tasa (puedes recibir un error 429 "Too Many Requests" si excedes el uso).  </li>
+<li>Los datos se resetean periódicamente o tras 15 minutos de inactividad.  <a href="https://mockoon.com/playground/"></a></li>
+<li>Usa Postman para organizar y guardar tus solicitudes en una colección.  </li>
+</ul>
+<hr />
+<h2 id="instrucciones-de-la-actividad_1">Instrucciones de la Actividad</h2>
+<h3 id="parte-1-configuracion-del-entorno_1">Parte 1: Configuración del Entorno</h3>
+<ol>
+<li><strong>Instalar y configurar Postman</strong>:  </li>
+<li>Descarga e instala Postman desde <a href="https://www.postman.com">postman.com</a> si no lo tienes.  </li>
+<li>Abre Postman y crea una nueva <strong>colección</strong> llamada <code>Mockoon Playground Practice</code>:  <ul>
+<li>Clic en <strong>Collections</strong> → <strong>New Collection</strong> → Nómbrala → <strong>Create</strong>.  <a href="https://learning.postman.com/docs/design-apis/mock-apis/mock-with-examples/"></a></li>
+</ul>
+</li>
+<li>
+<p>Esta colección almacenará todas las solicitudes de la actividad.</p>
+</li>
+<li>
+<p><strong>Explorar el Mockoon Playground</strong>:  </p>
+</li>
+<li>Visita <a href="https://playground.mockoon.com">playground.mockoon.com</a> y revisa la documentación.  </li>
+<li>
+<p>Familiarízate con el recurso <code>/users</code>, que soporta:  </p>
+<ul>
+<li><code>GET /users</code>: Lista todos los usuarios.  </li>
+<li><code>GET /users/{id}</code>: Obtiene un usuario por ID.  </li>
+<li><code>POST /users</code>: Crea un nuevo usuario.  </li>
+<li><code>PUT /users/{id}</code>: Actualiza un usuario existente.  </li>
+<li><code>DELETE /users/{id}</code>: Elimina un usuario.  <a href="https://mockoon.com/playground/"></a></li>
+</ul>
+</li>
+<li>
+<p><strong>Preparar Postman</strong>:  </p>
+</li>
+<li>Crea una nueva solicitud en la colección:  <ul>
+<li>Clic en <strong>New</strong> → <strong>Request</strong> → Nómbrala (ejemplo: <code>GET Users</code>) → Guardar en <code>Mockoon Playground Practice</code>.  </li>
+</ul>
+</li>
+<li>Configura la URL base: <code>https://playground.mockoon.com</code>.</li>
+</ol>
+<hr />
+<h3 id="parte-2-practica-con-metodos-http">Parte 2: Práctica con Métodos HTTP</h3>
+<p>Realiza las siguientes tareas en Postman, enviando solicitudes al recurso <code>/users</code> del Mockoon Playground. Guarda cada solicitud en la colección y anota los códigos de estado y las respuestas.</p>
+<h4 id="tarea-1-get-listar-todos-los-usuarios">Tarea 1: GET - Listar Todos los Usuarios</h4>
+<ul>
+<li><strong>Objetivo</strong>: Obtener la lista completa de usuarios.  </li>
+<li><strong>Instrucciones</strong>:  </li>
+<li>Crea una nueva solicitud en Postman:  <ul>
+<li>Método: <strong>GET</strong>.  </li>
+<li>URL: <code>https://playground.mockoon.com/users</code>.  </li>
+<li>Guarda como <code>GET All Users</code>.  </li>
+</ul>
+</li>
+<li>Envía la solicitud (clic en <strong>Send</strong>).  </li>
+<li>Analiza la respuesta:  <ul>
+<li><strong>Código de estado esperado</strong>: <code>200 OK</code>.  </li>
+<li><strong>Respuesta</strong>: Un arreglo JSON con múltiples usuarios (ejemplo: <code>[{ "id": 1, "name": "Gudrun Rempel", "email": "Gudrun_Rempel@gmail.com" }, ...]</code>).  <a href="https://mockoon.com/tutorials/create-full-rest-api-crud-routes/"></a></li>
+</ul>
+</li>
+<li><strong>Tarea adicional</strong>: Copia el <code>id</code> de un usuario para usarlo en las siguientes tareas.  </li>
+</ul>
+<h4 id="tarea-2-get-obtener-un-usuario-especifico">Tarea 2: GET - Obtener un Usuario Específico</h4>
+<ul>
+<li><strong>Objetivo</strong>: Obtener los detalles de un usuario por su ID.  </li>
+<li><strong>Instrucciones</strong>:  </li>
+<li>Crea una nueva solicitud:  <ul>
+<li>Método: <strong>GET</strong>.  </li>
+<li>URL: <code>https://playground.mockoon.com/users/{id}</code> (reemplaza <code>{id}</code> con el ID copiado, ejemplo: <code>https://playground.mockoon.com/users/1</code>).  </li>
+<li>Guarda como <code>GET User by ID</code>.  </li>
+</ul>
+</li>
+<li>Envía la solicitud.  </li>
+<li>Analiza la respuesta:  <ul>
+<li><strong>Código de estado esperado</strong>: <code>200 OK</code>.  </li>
+<li><strong>Respuesta</strong>: Un objeto JSON con los datos del usuario (ejemplo: <code>{ "id": 1, "name": "Gudrun Rempel", "email": "Gudrun_Rempel@gmail.com" }</code>).  </li>
+</ul>
+</li>
+<li><strong>Tarea adicional</strong>: Intenta con un ID inválido (ejemplo: <code>999</code>).  <ul>
+<li><strong>Código de estado esperado</strong>: <code>404 Not Found</code>.  </li>
+<li><strong>Respuesta</strong>: <code>{ "error": "Not found" }</code>.  </li>
+</ul>
+</li>
+</ul>
+<h4 id="tarea-3-post-crear-un-nuevo-usuario">Tarea 3: POST - Crear un Nuevo Usuario</h4>
+<ul>
+<li><strong>Objetivo</strong>: Crear un nuevo usuario enviando datos JSON.  </li>
+<li><strong>Instrucciones</strong>:  </li>
+<li>Crea una nueva solicitud:  <ul>
+<li>Método: <strong>POST</strong>.  </li>
+<li>URL: <code>https://playground.mockoon.com/users</code>.  </li>
+<li>En la pestaña <strong>Body</strong>, selecciona <strong>raw</strong> → <strong>JSON</strong> y escribe:<br />
+  <div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;John Doe&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;email&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;john.doe@example.com&quot;</span>
+<span class="p">}</span>
+</code></pre></div></li>
+<li>Guarda como <code>POST Create User</code>.  </li>
+</ul>
+</li>
+<li>Envía la solicitud.  </li>
+<li>Analiza la respuesta:  <ul>
+<li><strong>Código de estado esperado</strong>: <code>201 Created</code>.  </li>
+<li><strong>Respuesta</strong>: El usuario creado (ejemplo: <code>{ "id": 4, "name": "John Doe", "email": "john.doe@example.com" }</code>).  <a href="https://mockoon.com/tutorials/create-full-rest-api-crud-routes/"></a></li>
+</ul>
+</li>
+<li><strong>Tarea adicional</strong>: Verifica que el usuario se creó enviando un <code>GET /users</code> y buscando el nuevo usuario en la lista.  </li>
+</ul>
+<h4 id="tarea-4-put-actualizar-un-usuario">Tarea 4: PUT - Actualizar un Usuario</h4>
+<ul>
+<li><strong>Objetivo</strong>: Actualizar los datos de un usuario existente.  </li>
+<li><strong>Instrucciones</strong>:  </li>
+<li>Crea una nueva solicitud:  <ul>
+<li>Método: <strong>PUT</strong>.  </li>
+<li>URL: <code>https://playground.mockoon.com/users/4</code> (usa el ID del usuario creado).  </li>
+<li>En la pestaña <strong>Body</strong>, selecciona <strong>raw</strong> → <strong>JSON</strong> y escribe:<br />
+  <div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">  </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Jane Doe&quot;</span><span class="p">,</span>
+<span class="w">  </span><span class="nt">&quot;email&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;jane.doe@example.com&quot;</span>
+<span class="p">}</span>
+</code></pre></div></li>
+<li>Guarda como <code>PUT Update User</code>.  </li>
+</ul>
+</li>
+<li>Envía la solicitud.  </li>
+<li>Analiza la respuesta:  <ul>
+<li><strong>Código de estado esperado</strong>: <code>200 OK</code>.  </li>
+<li><strong>Respuesta</strong>: El usuario actualizado (ejemplo: <code>{ "id": 4, "name": "Jane Doe", "email": "jane.doe@example.com" }</code>).  <a href="https://mockoon.com/tutorials/create-full-rest-api-crud-routes/"></a></li>
+</ul>
+</li>
+<li><strong>Tarea adicional</strong>: Verifica la actualización con un <code>GET /users/4</code>.  </li>
+</ul>
+<h4 id="tarea-5-delete-eliminar-un-usuario">Tarea 5: DELETE - Eliminar un Usuario</h4>
+<ul>
+<li><strong>Objetivo</strong>: Eliminar un usuario por su ID.  </li>
+<li><strong>Instrucciones</strong>:  </li>
+<li>Crea una nueva solicitud:  <ul>
+<li>Método: <strong>DELETE</strong>.  </li>
+<li>URL: <code>https://playground.mockoon.com/users/4</code>.  </li>
+<li>No se requiere cuerpo (body).  </li>
+<li>Guarda como <code>DELETE User</code>.  </li>
+</ul>
+</li>
+<li>Envía la solicitud.  </li>
+<li>Analiza la respuesta:  <ul>
+<li><strong>Código de estado esperado</strong>: <code>200 OK</code> o <code>204 No Content</code>.  </li>
+<li><strong>Respuesta</strong>: Puede ser vacía o confirmar la eliminación.  <a href="https://mockoon.com/tutorials/create-full-rest-api-crud-routes/"></a></li>
+</ul>
+</li>
+<li><strong>Tarea adicional</strong>: Verifica que el usuario fue eliminado enviando un <code>GET /users/4</code>.  <ul>
+<li><strong>Código de estado esperado</strong>: <code>404 Not Found</code>.  </li>
+</ul>
+</li>
+</ul>
+<hr />
+<h2 id="tutorial-instalar-y-usar-prompt-sync-en-nodejs"><strong>Tutorial: Instalar y usar <code>prompt-sync</code> en Node.js</strong></h2>
+<h4 id="paso-1-requisitos-previos"><strong>Paso 1: Requisitos previos</strong></h4>
+<p>Asegúrate de tener instalado:
+- <strong>Node.js</strong> en tu computadora. Puedes descargarlo desde <a href="https://nodejs.org/">nodejs.org</a> si no lo tienes.
+- Un editor de código como Visual Studio Code, Sublime Text o cualquier otro.
+- Una terminal (puede ser la terminal integrada en tu editor o una externa como CMD, PowerShell o Bash).</p>
+<h4 id="paso-2-crear-un-proyecto-nodejs"><strong>Paso 2: Crear un proyecto Node.js</strong></h4>
+<ol>
+<li>Crea una carpeta para tu proyecto:
+   <div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>mi-proyecto
+<span class="nb">cd</span><span class="w"> </span>mi-proyecto
+</code></pre></div></li>
+<li>Inicializa un proyecto Node.js ejecutando:
+   <div class="highlight"><pre><span></span><code>npm<span class="w"> </span>init<span class="w"> </span>-y
+</code></pre></div>
+   Esto creará un archivo <code>package.json</code> con la configuración predeterminada.</li>
+</ol>
+<h4 id="paso-3-instalar-prompt-sync"><strong>Paso 3: Instalar <code>prompt-sync</code></strong></h4>
+<ol>
+<li>En la terminal, dentro de la carpeta de tu proyecto, ejecuta el siguiente comando para instalar el módulo <code>prompt-sync</code>:
+   <div class="highlight"><pre><span></span><code>npm<span class="w"> </span>install<span class="w"> </span>prompt-sync
+</code></pre></div>
+   Esto descargará e instalará el módulo en la carpeta <code>node_modules</code> y lo añadirá como dependencia en tu <code>package.json</code>.</li>
+</ol>
+<h4 id="paso-4-crear-un-archivo-para-usar-prompt-sync"><strong>Paso 4: Crear un archivo para usar <code>prompt-sync</code></strong></h4>
+<ol>
+<li>Crea un archivo JavaScript, por ejemplo, <code>index.js</code>:
+   <div class="highlight"><pre><span></span><code>touch<span class="w"> </span>index.js
+</code></pre></div></li>
+<li>Abre <code>index.js</code> en tu editor de código y escribe el siguiente ejemplo:</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="c1">// Importar el módulo prompt-sync</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">prompt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;prompt-sync&#39;</span><span class="p">)();</span>
+
+<span class="c1">// Solicitar entrada al usuario</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">nombre</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">prompt</span><span class="p">(</span><span class="s1">&#39;¿Cuál es tu nombre? &#39;</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`¡Hola, </span><span class="si">${</span><span class="nx">nombre</span><span class="si">}</span><span class="sb">!`</span><span class="p">);</span>
+
+<span class="c1">// Solicitar un número</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">edad</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">prompt</span><span class="p">(</span><span class="s1">&#39;¿Cuál es tu edad? &#39;</span><span class="p">);</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Tienes </span><span class="si">${</span><span class="nx">edad</span><span class="si">}</span><span class="sb"> años.`</span><span class="p">);</span>
+</code></pre></div>
+<p><strong>Explicación del código</strong>:
+   - <code>require('prompt-sync')()</code> importa el módulo y lo inicializa para usar la entrada síncrona.
+   - <code>prompt('Pregunta')</code> muestra un mensaje en la consola y espera que el usuario ingrese un valor, que se almacena en una variable.
+   - La entrada siempre se recibe como una cadena de texto (string). Si necesitas un número, deberás convertirlo (por ejemplo, con <code>parseInt()</code> o <code>parseFloat()</code>).</p>
+<h4 id="paso-5-ejecutar-el-programa"><strong>Paso 5: Ejecutar el programa</strong></h4>
+<ol>
+<li>Guarda el archivo <code>index.js</code>.</li>
+<li>En la terminal, ejecuta el programa con:
+   <div class="highlight"><pre><span></span><code>node<span class="w"> </span>index.js
+</code></pre></div></li>
+<li>Verás que el programa te pide que ingreses tu nombre y edad, y luego muestra un mensaje con los valores ingresados.</li>
+</ol>
+<h4 id="paso-6-ejemplo-avanzado"><strong>Paso 6: Ejemplo avanzado</strong></h4>
+<p>Si quieres manejar números o entradas más complejas, aquí tienes un ejemplo más avanzado:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">prompt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;prompt-sync&#39;</span><span class="p">)();</span>
+
+<span class="c1">// Solicitar dos números y sumarlos</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">num1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">parseFloat</span><span class="p">(</span><span class="nx">prompt</span><span class="p">(</span><span class="s1">&#39;Ingresa el primer número: &#39;</span><span class="p">));</span>
+<span class="kd">const</span><span class="w"> </span><span class="nx">num2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">parseFloat</span><span class="p">(</span><span class="nx">prompt</span><span class="p">(</span><span class="s1">&#39;Ingresa el segundo número: &#39;</span><span class="p">));</span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">suma</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">num1</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">num2</span><span class="p">;</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`La suma de </span><span class="si">${</span><span class="nx">num1</span><span class="si">}</span><span class="sb"> y </span><span class="si">${</span><span class="nx">num2</span><span class="si">}</span><span class="sb"> es: </span><span class="si">${</span><span class="nx">suma</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+</code></pre></div>
+<p><strong>Notas</strong>:
+- <code>parseFloat()</code> convierte la entrada (que es un string) en un número decimal.
+- Si necesitas enteros, usa <code>parseInt()</code> en lugar de <code>parseFloat()</code>.</p>
+<h4 id="paso-7-solucion-de-problemas-comunes"><strong>Paso 7: Solución de problemas comunes</strong></h4>
+<ol>
+<li><strong>Error: "prompt-sync no encontrado"</strong></li>
+<li>Asegúrate de haber ejecutado <code>npm install prompt-sync</code>.</li>
+<li>Verifica que estás ejecutando <code>node index.js</code> desde la carpeta correcta donde está <code>node_modules</code>.</li>
+<li><strong>Entrada no válida</strong></li>
+<li>Si esperas números, usa <code>parseInt()</code> o <code>parseFloat()</code> para convertir las entradas.</li>
+<li>Puedes agregar validaciones, como:
+     <div class="highlight"><pre><span></span><code><span class="kd">const</span><span class="w"> </span><span class="nx">numero</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">parseFloat</span><span class="p">(</span><span class="nx">prompt</span><span class="p">(</span><span class="s1">&#39;Ingresa un número: &#39;</span><span class="p">));</span>
+<span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="nb">isNaN</span><span class="p">(</span><span class="nx">numero</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s1">&#39;Por favor, ingresa un número válido.&#39;</span><span class="p">);</span>
+<span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="sb">`Número ingresado: </span><span class="si">${</span><span class="nx">numero</span><span class="si">}</span><span class="sb">`</span><span class="p">);</span>
+<span class="p">}</span>
+</code></pre></div></li>
+</ol>
+<h4 id="paso-8-opcional-actualizar-o-desinstalar"><strong>Paso 8: Opcional - Actualizar o desinstalar</strong></h4>
+<ul>
+<li><strong>Actualizar <code>prompt-sync</code></strong>:
+  <div class="highlight"><pre><span></span><code>npm<span class="w"> </span>update<span class="w"> </span>prompt-sync
+</code></pre></div></li>
+<li><strong>Desinstalar <code>prompt-sync</code></strong>:
+  <div class="highlight"><pre><span></span><code>npm<span class="w"> </span>uninstall<span class="w"> </span>prompt-sync
+</code></pre></div></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      2025 &copy; by JFVG
+    </div>
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs.sticky", "navigation.tabs", "navigation.top", "content.code.annotate", "content.code.copy", "content.tabs.link", "navigation.indexes"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.f1b6f286.min.js"></script>
+      
+    
+  <script id="init-glightbox">const lightbox = GLightbox({"touchNavigation": true, "loop": false, "zoomable": true, "draggable": true, "openEffect": "zoom", "closeEffect": "zoom", "slideEffect": "slide"});
+document$.subscribe(() => { lightbox.reload() });
+</script></body>
+</html>
